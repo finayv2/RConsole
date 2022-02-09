@@ -44,7 +44,13 @@ function CustomRConsole.PrintText(str, Color, Specs)
     end
 
     if Color ~= nil then rconsoleprint(CustomRConsole.Colors[string.lower(Color)]) end;
-    rconsoleprint(str)
+
+    if Specs == "Space" then
+        rconsoleprint(str, "\n")
+    else
+        rconsoleprint(str)
+    end
+
 end
 
 function CustomRConsole.ChangeColor(Color)
