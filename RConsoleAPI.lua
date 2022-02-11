@@ -37,7 +37,7 @@ local SpecFunctions = {
 for i,v in pairs(CustomRConsole.Colors) do i = string.lower(i) end
 
 function CustomRConsole.PrintText(str, Color, Specs)
-    if type(str) ~= 'string' then str = tostring(str) end;
+    str = tostring(str)
 
     if Specs ~= nil then
         SpecFunctions[Specs]()
