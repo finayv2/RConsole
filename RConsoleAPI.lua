@@ -1,21 +1,21 @@
 local CustomRConsole = {
     Colors = {
-        ["Black"] =	"@@BLACK@@";
-        ["Blue"] = "@@BLUE@@";
-        ["Green"] = "@@GREEN@@";
-        ["Cyan"] = "@@CYAN@@";
-        ["Red"] = "@@RED@@";
-        ["Magenta"] = "@@MAGENTA@@";
-        ["Brown"] =	"@@BROWN@@";
-        ["Light Gray"] = "@@LIGHT_GRAY@@";
-        ["Dark Gray	"] = "@@DARK_GRAY@@";
-        ["Light Blue"] = "@@LIGHT_BLUE@@";
-        ["Light Green"] = "@@LIGHT_GREEN@@";
-        ["Light Cyan"] = "@@LIGHT_CYAN@@";
-        ["Light Red"] = "@@LIGHT_RED@@";
-        ["Light Magenta"] =	"@@LIGHT_MAGENTA@@";
-        ["Yellow"] = "@@YELLOW@@";
-        ["White"] =	"@@WHITE@@";
+        ["black"] =	"@@BLACK@@";
+        ["blue"] = "@@BLUE@@";
+        ["green"] = "@@GREEN@@";
+        ["cyan"] = "@@CYAN@@";
+        ["red"] = "@@RED@@";
+        ["magenta"] = "@@MAGENTA@@";
+        ["brown"] =	"@@BROWN@@";
+        ["light gray"] = "@@LIGHT_GRAY@@";
+        ["dark gray	"] = "@@DARK_GRAY@@";
+        ["light blue"] = "@@LIGHT_BLUE@@";
+        ["light green"] = "@@LIGHT_GREEN@@";
+        ["light cyan"] = "@@LIGHT_CYAN@@";
+        ["light red"] = "@@LIGHT_RED@@";
+        ["light magenta"] =	"@@LIGHT_MAGENTA@@";
+        ["yellow"] = "@@YELLOW@@";
+        ["white"] =	"@@WHITE@@";
     };
 
 }
@@ -34,7 +34,6 @@ local SpecFunctions = {
     end;
 }
 
-for i,v in pairs(CustomRConsole.Colors) do i = string.lower(i) end
 
 function CustomRConsole.PrintText(str, Color, Specs)
     str = tostring(str)
@@ -43,7 +42,7 @@ function CustomRConsole.PrintText(str, Color, Specs)
         SpecFunctions[Specs]()
     end
 
-    if Color ~= nil then print(Color,CustomRConsole.Colors[string.lower(Color)]) rconsoleprint(CustomRConsole.Colors[string.lower(Color)]) end;
+    if Color ~= nil then rconsoleprint(CustomRConsole.Colors[string.lower(Color)]) end;
 
     if Specs == "Space" then
         rconsoleprint(str, "\n")
