@@ -23,14 +23,14 @@ local CustomRConsole = {
 local SpecFunctions = {
     ['Debug'] = function()
         rconsoleprint("@@RED@@")
-        rconsoleprint('[Debug]')
+        rconsoleprint('[Debug] ')
     end;
 
     ["Time"] = function()
         local timestamp = string.format("%02i:%02i %s", ((hour - 1) % 12) + 1, os.date("!*t").min, (os.date("!*t").hour + 1) % 24 < 12 and "AM" or "PM")
 
         rconsoleprint("@@WHITE@@")
-        rconsoleprint(tostring(timestamp)..":")
+        rconsoleprint(tostring(timestamp)..": ")
     end;
 }
 
@@ -43,7 +43,7 @@ function CustomRConsole.PrintText(str, Color, Specs)
         SpecFunctions[Specs]()
     end
 
-    if Color ~= nil then rconsoleprint(CustomRConsole.Colors[string.lower(Color)]) end;
+    if Color ~= nil then print(Color,CustomRConsole.Colors[string.lower(Color)]) rconsoleprint(CustomRConsole.Colors[string.lower(Color)]) end;
 
     if Specs == "Space" then
         rconsoleprint(str, "\n")
