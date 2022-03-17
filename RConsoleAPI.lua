@@ -31,7 +31,7 @@ local SpecFunctions = {
         local timestamp = string.format("%02i:%02i %s", (((date.hour + 1) % 24 - 1) % 12) + 1, date.min, (date.hour + 1) % 24 < 12 and "AM" or "PM")
 
         rconsoleprint("@@WHITE@@")
-        rconsoleprint(tostring(timestamp)..": ")
+        rconsoleprint("["..tostring(timestamp).."]: ")
     end;
 }
 
