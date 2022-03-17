@@ -20,6 +20,18 @@ local CustomRConsole = {
 
 }
 
+local function getTime()
+    local date = os.date("*t")
+    
+    local currentHour = os.date("*t")["hour"]
+	if currentHour < 12 or currentHour == 24 then
+        return ("%02d:%02d"):format(((date.hour % 24) - 1) % 12 + 1, date.min).. ":" .. date.sec .. " AM"
+	else
+        return ("%02d:%02d"):format(((date.hour % 24) - 1) % 12 + 1, date.min).. ":" .. date.sec .. " PM"
+	end
+end
+
+
 local SpecFunctions = {
     ['Debug'] = function()
         rconsoleprint("@@RED@@")
@@ -27,11 +39,8 @@ local SpecFunctions = {
     end;
 
     ["Time"] = function()
-        local date = os.date("!*t")
-        local timestamp = string.format("%02i:%02i %s", (((date.hour + 1) % 24 - 1) % 12) + 1, date.min, (date.hour + 1) % 24 < 12 and "AM" or "PM")
-
         rconsoleprint("@@WHITE@@")
-        rconsoleprint("["..tostring(timestamp).."]: ")
+        rconsoleprint("["..tostring(getTime()).."]: ")
     end;
 }
 
