@@ -27,7 +27,8 @@ local SpecFunctions = {
     end;
 
     ["Time"] = function()
-        local timestamp = string.format("%02i:%02i %s", ((hour - 1) % 12) + 1, os.date("!*t").min, (os.date("!*t").hour + 1) % 24 < 12 and "AM" or "PM")
+        local date = os.date("!*t")
+        local timestamp = string.format("%02i:%02i %s", (((date.hour + 1) % 24 - 1) % 12) + 1, date.min, (date.hour + 1) % 24 < 12 and "AM" or "PM")
 
         rconsoleprint("@@WHITE@@")
         rconsoleprint(tostring(timestamp)..": ")
